@@ -8,3 +8,17 @@ const inventory = [
     { name: 'Arabian Coffee', price: 5, quantity: 4 }
 ];
 
+// Task 2- Create an Orders Array of Order Objects
+
+const orders = [];
+
+orders.push({
+    customerName: 'Elena',
+    items: [
+        {name:'Caramel Frappe', quantity: 2}
+        {name:'Arabian Coffee', quantity: 1}
+    ], 
+    status: 'Pending'
+}); 
+ 
+console.log(orders);
