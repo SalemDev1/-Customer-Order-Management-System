@@ -21,7 +21,7 @@ orders.push({
     status: 'Pending'
 }); 
  
-console.log(JSON.stringify(orders, null, 2));
+console.log(JSON.stringify(orders, null, 2)); // experimenting with different console.logs
 
 //Outputs- logs an order example
 
@@ -82,3 +82,27 @@ orders.forEach(order => {
         console.log(`Product: ${item.name}, Quantity: ${item.quantity}`);
     });
 });
+
+//Task 4- Create a Function to Calculate Total for an Order
+function calculateOrderTotal(order, inventory) {
+    let total = 0;
+
+    for (let i = 0; i < order.items.length; i++) {
+        let orderedItem = order.items[i];
+
+        for (let i = 0; i < inventory.length; i++) {
+            let inventoryItem = inventory[i];
+
+            if (inventoryItem.name === orderedItem.name) {
+                total += inventoryItem.price * orderedItem.quantity;
+                break;
+            }
+        }
+    }
+
+    return total;
+
+    
+}
+let total = calculateOrderTotal(orders[0], inventory);  // orders[0] refers to the first order (Elena's order)
+console.log("The total cost of the order is: $" + total);
