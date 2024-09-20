@@ -116,3 +116,22 @@ function completeOrder(customerName) {
 }
 
 completeOrder('Elena');
+
+//Task 6- Create a Function to Check Pending Orders
+function checkPendingOrders() {
+    let hasPendingOrders = false;
+    console.log("Checking for pending orders...");
+
+    for (let orderPlace = 0; orderPlace < orders.length; orderPlace++) {
+        if (orders[orderPlace].status === 'Pending') {
+            console.log(`Order for ${orders[orderPlace].customerName} is still pending.`);
+            hasPendingOrders = true;
+        }
+    }
+
+    if (!hasPendingOrders) {
+        console.log("All orders have been completed! No pending orders at the moment.");
+    }
+}
+
+checkPendingOrders();
