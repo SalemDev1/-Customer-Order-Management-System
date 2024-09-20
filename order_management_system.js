@@ -86,7 +86,6 @@ orders.forEach(order => {
 //Task 4- Create a Function to Calculate Total for an Order
 function calculateOrderTotal(order, inventory) {
     let total = 0;
-
     for (let i = 0; i < order.items.length; i++) {
         let orderedItem = order.items[i];
 
@@ -95,14 +94,25 @@ function calculateOrderTotal(order, inventory) {
 
             if (inventoryItem.name === orderedItem.name) {
                 total += inventoryItem.price * orderedItem.quantity;
-                break;
             }
         }
     }
-
-    return total;
-
-    
+    return total;  
 }
-let total = calculateOrderTotal(orders[0], inventory);  // orders[0] refers to the first order (Elena's order)
+let total = calculateOrderTotal(orders[0], inventory);  
 console.log("The total cost of the order is: $" + total);
+//Logs Elenas Orders
+
+//Task 5- Create a Function to Mark an Order as Completed
+function completeOrder(customerName) {
+    for (let orderPlace = 0; orderPlace < orders.length; orderPlace++) {
+        if (orders[orderPlace].customerName === customerName) {
+            orders[orderPlace].status = 'Completed';
+            console.log(`Great news! The order for ${customerName} has been successfully completed!`);
+            return;
+        }
+    }
+    console.log(`Oops! We couldn't find an order for ${customerName}. Please check the name and try again.`);
+}
+
+completeOrder('Elena');
